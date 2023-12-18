@@ -23,7 +23,7 @@ jobs:
           name: Install Dependencies
           command: luarocks install luafilesystem
 
-  lint_and_test:
+  linter:
     docker:
       - image: nickblah/lua:5.2-luarocks-focal
     working_directory: ~/lua-cli
@@ -36,14 +36,22 @@ jobs:
           name: Install LuaCheck
           command: luarocks install luacheck
       - run:
-          name: Check files
-          command: ls -la
-      - run:
           name: Run Lua Linter
           command: luacheck *.lua
+          
+  test:
+    docker:
+      - image: nickblah/lua:5.2-luarocks-focal
+    working_directory: ~/lua-cli
+    steps:
+      - checkout
+      - run:
+          name: Install Build Tools
+          command: apt-get update && apt-get install -y build-essential
       - run:
           name: Run Tests
           command: lua ./Test_cooker.lua
+          
 workflows:
   version: 2
   build:
@@ -53,7 +61,12 @@ workflows:
             branches:
               only:
                 - feature/lua
-      - lint_and_test:
+      - linter:
+          filters:
+            branches:
+              only:
+                - feature/lua
+      - test:
           filters:
             branches:
               only:
