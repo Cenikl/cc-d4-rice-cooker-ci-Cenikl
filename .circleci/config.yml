@@ -13,8 +13,8 @@ jobs:
       - run:
           name: Install Bundler and Gems
           command: |
-            gem install rspec
-            rspec .\Tests\rice_cooker_test.rb
+            gem install bundler
+            bundle install
   lint:
     docker:
       - image: circleci/ruby:3.0
@@ -40,7 +40,9 @@ jobs:
             bundle install
       - run:
           name: Run Tests
-          command: bundle exec rspec
+          command: |
+            gem install rspec
+            rspec .\Tests\rice_cooker_test.rb
 
 workflows:
   version: 2
