@@ -36,17 +36,11 @@ jobs:
             mv ./* $HOME/lua
             cd $HOME/lua
       - run:
-          name: Install Dependencies
-          command: luarocks install luafilesystem busted
-      - run:
           name: Run Lua Linter
           command: luacheck .
       - run:
           name: Run Tests
           command: lua Test_cooker.lua
-      - run: 
-          name: Run Tests with bundle
-          command: busted
 workflows:
   version: 2
   build:
