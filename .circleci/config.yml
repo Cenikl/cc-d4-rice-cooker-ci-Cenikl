@@ -42,6 +42,9 @@ jobs:
           name: Install LuaCheck
           command: luarocks install luacheck
       - run:
+          name: Check files
+          command: ls
+      - run:
           name: Run Lua Linter
           command: luacheck *.lua
       - run:
