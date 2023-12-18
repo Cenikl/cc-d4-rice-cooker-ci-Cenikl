@@ -3,7 +3,7 @@ version: 2.1
 jobs:
   install_dependencies:
     docker:
-      - image: google/dart:3.2.3
+      - image: google/dart:latest
     working_directory: ~/dart-cli
     steps:
       - checkout
@@ -12,7 +12,7 @@ jobs:
           command: dart pub get
   lint:
     docker:
-      - image: google/dart:3.2.3
+      - image: google/dart:latest
     working_directory: ~/dart-cli
     steps:
       - checkout
@@ -21,7 +21,7 @@ jobs:
           command: dart analyze
   build_and_test:
     docker:
-      - image: google/dart:3.2.3
+      - image: google/dart:latest
     working_directory: ~/dart-cli
     steps:
       - checkout
