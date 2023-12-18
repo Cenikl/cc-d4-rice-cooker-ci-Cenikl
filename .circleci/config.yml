@@ -3,7 +3,7 @@ version: 2.1
 jobs:
   install_dependencies:
     docker:
-      - image: google/dart:2.14
+      - image: google/dart:3.2.3
     working_directory: ~/dart-cli
     steps:
       - checkout
@@ -12,19 +12,16 @@ jobs:
           command: dart pub get
   lint:
     docker:
-      - image: google/dart:2.14
+      - image: google/dart:3.2.3
     working_directory: ~/dart-cli
     steps:
       - checkout
       - run:
-          name: Install Dart SDK
-          command: echo "Already installed with the Dart image"
-      - run:
           name: Run Dart Analyzer
-          command: dart analyzer .
+          command: dart analyze
   build_and_test:
     docker:
-      - image: google/dart:2.14
+      - image: google/dart:3.2.3
     working_directory: ~/dart-cli
     steps:
       - checkout
