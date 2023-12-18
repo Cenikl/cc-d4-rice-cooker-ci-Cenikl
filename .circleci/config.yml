@@ -5,7 +5,7 @@ version: 2.1
 jobs:
   install_dependencies:
     docker:
-      - image: circleci/ruby:3.2.2
+      - image: circleci/ruby:3.0
 
     working_directory: ~/ruby-cli
     steps:
@@ -17,7 +17,7 @@ jobs:
             rspec .\Tests\rice_cooker_test.rb
   lint:
     docker:
-      - image: circleci/ruby:3.2.2
+      - image: circleci/ruby:3.0
     working_directory: ~/ruby-cli
     steps:
       - checkout
@@ -29,7 +29,7 @@ jobs:
           command: rubocop
   build_and_test:
     docker:
-      - image: circleci/ruby:3.2.2
+      - image: circleci/ruby:3.0
     working_directory: ~/ruby-cli
     steps:
       - checkout
