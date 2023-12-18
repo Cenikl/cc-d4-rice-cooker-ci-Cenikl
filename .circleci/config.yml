@@ -37,7 +37,7 @@ jobs:
           name: Run Tests
           command: |
             gem install rspec
-            rspec .\Tests\rice_cooker_test.rb
+            rspec ./Tests/rice_cooker_test.rb
 
 workflows:
   version: 2
