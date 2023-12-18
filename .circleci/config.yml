@@ -34,11 +34,6 @@ jobs:
     steps:
       - checkout
       - run:
-          name: Install Bundler and Gems
-          command: |
-            gem install bundler
-            bundle install
-      - run:
           name: Run Tests
           command: |
             gem install rspec
