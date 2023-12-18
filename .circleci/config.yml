@@ -43,10 +43,10 @@ jobs:
           command: luarocks install luacheck
       - run:
           name: Run Lua Linter
-          command: luacheck .
+          command: luacheck *.lua
       - run:
           name: Run Tests
-          command: lua Test_cooker.lua
+          command: lua ./Test_cooker.lua
 workflows:
   version: 2
   build:
