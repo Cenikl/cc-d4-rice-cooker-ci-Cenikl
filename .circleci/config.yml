@@ -15,7 +15,7 @@ jobs:
             cd $HOME/lua
       - run:
           name: Install Dependencies
-          command: luarocks install --lua-dir=/usr/local/lua_modules luafilesystem
+          command: luarocks install luafilesystem
   lint_and_test:
     docker:
       - image: nickblah/lua:5.2-luarocks-focal
@@ -30,7 +30,7 @@ jobs:
             cd $HOME/lua
       - run:
           name: Install Dependencies
-          command: luarocks install --lua-dir=/usr/local/lua_modules luafilesystem busted
+          command: luarocks install luafilesystem busted
       - run:
           name: Run Lua Linter
           command: luacheck .
