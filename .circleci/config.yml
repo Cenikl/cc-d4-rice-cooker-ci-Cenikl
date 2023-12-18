@@ -18,7 +18,8 @@ jobs:
             cd $HOME/lua
       - run:
           name: Install Dependencies
-          command: luarocks install --lua-dir=/usr/local/lua_modules --lua-version=5.2 luafilesystem
+          command: luarocks install luafilesystem
+
   lint_and_test:
     docker:
       - image: nickblah/lua:5.2-luarocks-focal
