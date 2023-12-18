@@ -36,6 +36,9 @@ jobs:
             mv ./* $HOME/lua
             cd $HOME/lua
       - run:
+          name: Install LuaCheck
+          command: luarocks install luacheck
+      - run:
           name: Run Lua Linter
           command: luacheck .
       - run:
