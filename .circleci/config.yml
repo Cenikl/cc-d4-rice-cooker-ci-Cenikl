@@ -3,7 +3,7 @@ version: 2.1
 jobs:
   install_dependencies:
     docker:
-      - image: circleci/lua:5.4
+      - image: nickblah/lua:5.2-luarocks-focal
     working_directory: ~/lua-cli
     steps:
       - checkout
@@ -18,7 +18,7 @@ jobs:
           command: luarocks install --lua-dir=/usr/local/lua_modules luafilesystem
   lint_and_test:
     docker:
-      - image: circleci/lua:5.4
+      - image: nickblah/lua:5.2-luarocks-focal
     working_directory: ~/lua-cli
     steps:
       - checkout
