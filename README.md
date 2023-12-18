@@ -1,4 +1,4 @@
-## RICE COOKER 
+## RICE COOKER #1
 
 <div align="center">
     <img src="https://cdn-icons-png.flaticon.com/256/4152/4152586.png" alt="Logo" width="180" height="180">
